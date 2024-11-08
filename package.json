@@ -1,11 +1,16 @@
 {
   "name": "dirge",
   "version": "1.0.0",
+  "sideEffects": [
+    "*.css"
+  ],
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open --config webpack.config.js",
-    "build": "webpack --config webpack.config.js"
+    "start": "webpack serve --open --config webpack.config.js --mode development",
+    "build": "webpack --config webpack.config.js --mode production",
+    "build:dev": "webpack --config webpack.config.js --mode development",
+    "build:prod": "webpack --config webpack.config.js --mode production"
   },
   "keywords": [],
   "author": "",

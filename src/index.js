@@ -1,5 +1,7 @@
 import "./styles.css";
 import { methodOne } from "./utils/methods";
+// import map from "lodash/map";
+//^ try uncommenting
 
 //base starting point
 const root = document.createElement("div");

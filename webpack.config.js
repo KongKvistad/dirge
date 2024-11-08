@@ -8,7 +8,8 @@ module.exports = (env, argv) => {
   return {
     entry: "./src/index.js", // Main entry file
     output: {
-      filename: "bundle.js",
+      filename: "[name].bundle.js",
+      chunkFilename: "[name].chunk.js",
       path: path.resolve(__dirname, "dist"),
     },
 
@@ -36,6 +37,16 @@ module.exports = (env, argv) => {
 
     optimization: {
       usedExports: argv.mode === "production", // Apply tree shaking only in production
+      splitChunks: {
+        chunks: "all",
+        cacheGroups: {
+          vendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: "vendors",
+            chunks: "all",
+          },
+        },
+      },
     },
 
     plugins: [
